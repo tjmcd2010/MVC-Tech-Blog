@@ -1,0 +1,117 @@
+/*General CSS*/
+header,
+.project:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+}
+
+.no-button {
+  background: none;
+  border: none;
+  margin: 5px;
+  padding: 0;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  font-size: 100%;
+}
+
+.no-button:hover {
+  color: #065b83;
+  text-decoration: underline;
+}
+
+h2 {
+  font-size: 2rem;
+  align-content: center;
+}
+
+h4 {
+  justify-content: center;
+  justify-self: center;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+}
+
+section {
+  display: flex;
+  margin-top: 10px;
+  margin: 10px;
+  padding: 10px;
+  align-items: flex-start;
+  width: 50%;
+}
+
+a {
+  margin: 10px;
+  align-items: stretch;
+  align-content: center;
+}
+
+article {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+/*CSS for the body*/
+.flex-column.justify-space-around {
+  min-height: 85.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+
+
+/*Media Queries*/
+@media screen and (min-width: 640px) {
+  .col-sm-auto {
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+  section {
+    flex-direction: row;
+    width: 50%;
+  }
+
+  article {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .footer {
+    position: static;
+    bottom: auto;
+  }
+
+  .create-sitting-request-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+/*CSS Styling for Single Request Handlebars */
+.row.mt-4 {
+  display: block;
+  font-size: x-large;
+  justify-content: space-between;
+}
+  
+.text-primary {
+    font-weight: bold;
+    float: inline-start;
+    margin-right: 20px;
+    margin-left: 5px;
+    justify-content: space-evenly;
+  }
+
+.output {
+  font-size: x-large;
+  float: inherit;
+  justify-content: space-evenly;
+}
+.card-header {
+  background-color: aqua;
+}
+
