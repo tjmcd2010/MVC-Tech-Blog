@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tech Blog</title>
+    
+    <link rel="stylesheet" href="/css/jass.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+    <header>
+        <h2>My Tech Blog</h2>
+        
+    </header>
+  <nav>
+    <div class="nav-wrapper #b2dfdb teal lighten-3">
+      <a href="/" class="brand-logo">Post and Read Blogs about Tech! </a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        {{#if logged_in}}
+        <li> <a href="/blog">Current Blogs</a></li>
+        <li><a href="/create">Create New Blog </a></li>
+        <li><button class="no-button" id="logout">logout</button></li>
+        {{else}}
+        <a href="/login">Login</a>
+        {{/if}}
+    </div>
+    </div>
+    </ul>
+  </nav>
+  <div class="flex-column justify-space-around">
+
+    <main class="container container-fluid mt-5">
+      {{{ body }}}
+    </main>
+  </div>
+
+  <!-- Render script for logged in by pet owners only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+ 
+    
+</body>
+<footer class="page-footer #b2dfdb teal lighten-3">
+  <div class="footer-copyright">
+    <div class="container">
+      <center> <a href="https://tjmcd2010.github.io/Travis-McDermott-Portfolio/"> © Travis McDermott</a> </center>
+    </div>
+  </div>
+</footer>
+</html>

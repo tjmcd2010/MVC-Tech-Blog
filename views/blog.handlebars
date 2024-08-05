@@ -1,0 +1,28 @@
+<div class="row mt-4">
+  {{#if blogs.length}}
+  <div class="centered">
+    <h4>Current Blogs:</h4>
+    <table class="striped centered">
+      <thead>
+        <tr>
+          <th>Blog Title</th>
+          <th>Blog Content</th>
+          <th>Blog Date</th>
+        
+        </tr>
+      </thead>
+      <tbody>
+        {{#each blogs as |blog|}}
+        <tr>
+          <td> <a href="/blog/{{blog.id}}"> {{blog.title}}:</td>
+          <td>{{blog.content}}</td>
+          <td>{{date_created}}</td>
+        </tr>
+        {{/each}}
+  </div>
+  {{else}}
+  <h3>No Blogs yet</h3>
+</div>
+</tbody>
+{{/if}}
+</table>
