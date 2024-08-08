@@ -8,6 +8,8 @@
           <th>Blog Title</th>
           <th>Blog Content</th>
           <th>Blog Date</th>
+          <th>Blog Owner Name</th>
+
         
         </tr>
       </thead>
@@ -16,7 +18,8 @@
         <tr>
           <td> <a href="/blog/{{blog.id}}"> {{blog.title}}:</td>
           <td>{{blog.content}}</td>
-          <td>{{date_created}}</td>
+          <td>{{format_date date_created}}</td>
+          <td>{{owner.ownerName}}</td>
         </tr>
         {{/each}}
   </div>

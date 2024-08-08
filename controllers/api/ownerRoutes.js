@@ -1,33 +1,34 @@
 const router = require('express').Router();
-const { Blogger } = require('../../models');
+const { Owner } = require('../../models');
 
+// Route for creating a new Blog profile
 router.post('/', async (req, res) => {
   try {
-    const bloggerData = await Blogger.create(req.body);
+    const ownerData = await Owner.create(req.body);
 
     req.session.save(() => {
-      req.session.blogger_id = bloggerData.id;
+      req.session.owner_id = ownerData.id;
       req.session.logged_in = true;
 
-      res.status(200).json(bloggerData);
+      res.status(200).json(ownerData);
     });
   } catch (err) {
     res.status(400).json(err);
   }
 });
-
+// Route to login
 router.post('/login', async (req, res) => {
   try {
-    const bloggerData = await Blogger.findOne({ where: { email: req.body.email } });
+    const ownerData = await Owner.findOne({ where: { email: req.body.email } });
 
-    if (!bloggerData) {
+    if (!ownerData) {
       res
         .status(400)
         .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
 
-    const validPassword = await bloggerData.checkPassword(req.body.password);
+    const validPassword = await ownerData.checkPassword(req.body.password);
 
     if (!validPassword) {
       res
@@ -37,17 +38,17 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.blogger_id = bloggerData.id;
+      req.session.owner_id = ownerData.id;
       req.session.logged_in = true;
       
-      res.json({ blogger: bloggerData, message: 'You are now logged in!' });
+      res.json({ owner: ownerData, message: 'You are now logged in!' });
     });
 
   } catch (err) {
     res.status(400).json(err);
   }
 });
-
+// Route to logout
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

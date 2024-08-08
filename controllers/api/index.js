@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const bloggerRoutes = require('./bloggerRoutes');
+const ownerRoutes = require('./ownerRoutes');
 const blogRoutes = require('./blogRoutes');
 
-router.use('/bloggers', bloggerRoutes);
+router.use('/owners', ownerRoutes);
 router.use('/blogs', blogRoutes);
 
 module.exports = router;
