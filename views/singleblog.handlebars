@@ -3,16 +3,16 @@
   <div class = "card">
     <div class = "card-header">
       <h4>Blog Details</h4></div>
-  <div><span class="text-primary">Blogger Name: </span><span class = "output">{{blog.blogger_id}}</span></div><br>
-  <div><span class="text-primary">Blog Title: </span><span class = "output"></span>{{blog.title}} </span></div><br>
-  <div><span class="text-primary">Blog Content: </span><span class = "output"></span>{{blog.content}}</span></div><br>
+  <div><span class="text-primary">Blog Owner Name: </span><span class = "output">{{owner.ownerName}}</span></div><br>
+  <div><span class="text-primary">Blog Title: </span><span class = "output">{{blog.title}} </span></div><br>
+  <div><span class="text-primary">Blog Content: </span><span class = "output">{{blog.content}}</span></div><br>
   <div><span class="text-primary">Service Dates: </span><span class = "output"></span>{{format_date date_created}}</span></div>
   
   </div>
   <!--delete button-->
  
   <div>
-    <button class="btn btn-danger delete-btn" data-request-id="{{id}}">DELETE REQUEST</button>
+    <button class="btn btn-danger delete-btn" data-blog-id="{{id}}">DELETE REQUEST</button>
   </div>
 </div>
 </div>

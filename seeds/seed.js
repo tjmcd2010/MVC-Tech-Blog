@@ -1,12 +1,12 @@
 const sequelize = require('../config/connection');
-const { Blogger, Blog } = require('../models');
+const { Owner, Blog } = require('../models');
 
-const bloggerData = require('./bloggerData.json');
+const ownerData = require('./ownerData.json');
 const blogData = require('./blogData.json');
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
-  const bloggers = await Blogger.bulkCreate(bloggerData, {
+  const owners = await Owner.bulkCreate(ownerData, {
     individualHooks: true,
     returning: true,
   });
@@ -14,7 +14,7 @@ const seedDatabase = async () => {
   for (const blogs of blogData) {
     await Blog.create({
       ...blogs,
-      blogger_id: bloggers[Math.floor(Math.random() * bloggers.length)].id,
+      owner_id: owners[Math.floor(Math.random() * owners.length)].id,
     });
   }
 

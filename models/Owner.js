@@ -1,14 +1,14 @@
+// Set up the Owner model
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
-
-class Blogger extends Model {
+class Owner extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
 
-Blogger.init(
+Owner.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -16,9 +16,10 @@ Blogger.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    ownerName: {
       type: DataTypes.STRING,
       allowNull: false,
+      field: 'owner_name',
     },
     email: {
       type: DataTypes.STRING,
@@ -38,21 +39,21 @@ Blogger.init(
   },
   {
     hooks: {
-      beforeCreate: async (newBloggerData) => {
-        newBloggerData.password = await bcrypt.hash(newBloggerData.password, 10);
-        return newBloggerData;
+      beforeCreate: async (newOwnerData) => {
+        newOwnerData.password = await bcrypt.hash(newOwnerData.password, 10);
+        return newOwnerData;
       },
-      beforeUpdate: async (updatedBloggerData) => {
-        updatedBloggerData.password = await bcrypt.hash(updatedBloggerData.password, 10);
-        return updatedBloggerData;
+      beforeUpdate: async (updatedOwnerData) => {
+        updatedOwnerData.password = await bcrypt.hash(updatedOwnerData.password, 10);
+        return updatedOwnerData;
       },
     },
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'blogger',
+    modelName: 'owner',
   }
 );
 
-module.exports = Blogger;
+module.exports = Owner;

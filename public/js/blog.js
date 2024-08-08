@@ -14,6 +14,7 @@ document.querySelector("#new-request-form").addEventListener("submit", (event) =
   })
     .then(() => {
       alert("Submitted!");
+      console.log(blogBody);
       window.location.href = "/blog";
     })
     .catch((error) => {

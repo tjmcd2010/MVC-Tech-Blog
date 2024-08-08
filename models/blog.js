@@ -11,26 +11,30 @@ Blog.init(
       primaryKey: true,
       autoIncrement: true,
     },
+
+    owner_id: {
+      type: DataTypes.INTEGER,
+      references: {
+          model: 'owner',
+          key: 'id'
+      },
+      }, 
     title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     content: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
+   
     },
-  },
+
   {
     sequelize,
     timestamps: false,

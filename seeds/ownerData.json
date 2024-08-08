@@ -1,11 +1,11 @@
 [
   {
-    "name": "Dave",
+    "ownerName": "Dave",
     "email": "dave@blogmail.com",
     "password": "password12345"
   },
   {
-    "name": "Stephanie",
+    "ownerName": "Stephanie",
     "email": "steph@bloghoo.com",
     "password": "password12345"
   }
