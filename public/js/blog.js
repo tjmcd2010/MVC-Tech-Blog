@@ -1,24 +1,37 @@
-document.querySelector("#new-request-form").addEventListener("submit", (event) => {
+
+  const blogForm = document.querySelector('#new-request-form');
+
+blogForm.addEventListener('submit', async (event) => {
   event.preventDefault();
-  const blogTitle = document.querySelector("#blog-title").value.trim();
-  const blogContent = document.querySelector("#blog-content").value.trim();
-  const blogBody = JSON.stringify({ blogTitle, blogContent });
 
+  const blogTitle = document.querySelector('#blog-title').value.trim();
+  const blogContent = document.querySelector('#blog-content').value.trim();
 
-  fetch("/api/blog", {
-    method: "POST",
-    body: blogBody,
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then(() => {
-      alert("Submitted!");
-      console.log(blogBody);
-      window.location.href = "/blog";
-    })
-    .catch((error) => {
-      console.error("Error:", error);
+  if (!blogTitle || !blogContent) {
+    alert('Please fill in both the title and content fields.');
+    return;
+  }
+
+  const blogBody = { title: blogTitle, content: blogContent };
+
+  try {
+    const response = await fetch('/api/blogs/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(blogBody),
     });
-});
 
+    if (response.ok) {
+      alert('Blog post created successfully!');
+      window.location.href = '/blog';
+    } else {
+      const errorData = await response.json();
+      alert(`Error: ${errorData.error}`);
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('An error occurred while creating the blog post.');
+  }
+});
