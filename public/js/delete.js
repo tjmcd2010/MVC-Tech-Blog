@@ -11,7 +11,7 @@ function deleteBlog(blogId) {
       if (response.ok) {
         window.location.href = "/blog"
       } else {
-        alert("Failed to delete blog.");
+        alert("You must be logged in to delete a blog.");
       }
     })
     .catch((error) => {
