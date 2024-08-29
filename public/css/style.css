@@ -2,6 +2,12 @@
 header,
 .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
+  background-color: bisque;
+  margin-top: -35px;
+  margin-bottom: -25px;
+  display: flex;
+  align-items: center;
+  text-align: center;
 }
 
 .no-button {
@@ -23,6 +29,10 @@ header,
 h2 {
   font-size: 2rem;
   align-content: center;
+  font-family: "Titillium Web", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+
 }
 
 h4 {
@@ -61,7 +71,17 @@ article {
   flex-direction: column;
   justify-content: space-around;
 }
-
+h3 {
+    font-family: "Sevillana", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .titillium-web-extralight {
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+  }
 
 
 /*Media Queries*/
